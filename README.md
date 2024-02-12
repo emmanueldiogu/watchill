@@ -7,3 +7,4 @@
 - The code is setup using [Vite](https://vitejs.dev/)
 - Run `npm install` then `npm run dev` to test the dev server
 - Use the `npm run build` to build the project
+- We use [Fluid Typography Calculator](https://royalfig.github.io/fluid-typography-calculator/)
