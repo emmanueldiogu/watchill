@@ -1,7 +1,7 @@
 @use "util" as u;
 
 :root {
-  /* Background gradients */
+  /* Background Gradients */
   --bg-gradient: radial-gradient(
       circle at 98.7% 97.42%,
       #510927 11%,
@@ -25,7 +25,7 @@
   --c-secondary-gradient: linear-gradient(#efd912, #c7b512);
   --c-grey-gradient: linear-gradient(#dedede, #f3f3f3);
 
-  /* Shadows */
+  /* Drop Shadows */
   --ds-primary: 0 0 40px 7px rgb(255, 24, 121, 0.3);
   --ds-secondary: 0 0 40px 7px rgba(242, 218, 6, 0.3);
   --ds-grey: 0 10px 25px 1px #270011;
@@ -84,11 +84,11 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: var(--f-body);
   line-height: 1.7;
   background: var(--bg-gradient);
-  color: var(--light);
+  color: var(--c-white);
 }
 
 .light-mode {
