@@ -2,17 +2,7 @@
 
 :root {
   /* Background Gradients */
-  --bg-gradient: radial-gradient(
-      circle at 98.7% 97.42%,
-      #510927 11%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    linear-gradient(90deg, #141414, #141414),
-    radial-gradient(
-      circle at -22.16% -6.6%,
-      #5f062b 0%,
-      rgba(108, 7, 50, 0) 100%
-    );
+  --bg-gradient: url("img/home.svg");
 
   /* Colors */
   --c-primary: #db0660;
@@ -40,6 +30,8 @@
 
   /* Font Sizes */
   --f-body: #{u.rem(14)};
+  --f-sub-head-1: #{u.rem(16)};
+  --f-sub-head-2: #{u.rem(14)};
   /* h2 fallback font-size: 1.5rem; */
   --f-h2: #{clamp(
       #{u.rem(24)},
@@ -87,7 +79,9 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: var(--f-body);
   line-height: 1.7;
-  background: var(--bg-gradient);
+  background-image: var(--bg-gradient);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--c-white);
 }
 
@@ -132,7 +126,7 @@ li {
   display: grid;
   gap: u.rem(64);
 
-  @media (width >= u.em(1110)) {
+  @media (width >= u.em(1200)) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: u.rem(300) auto auto;
     gap: u.rem(30);
