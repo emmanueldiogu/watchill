@@ -1,1 +1,76 @@
 @use "../util" as u;
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.09), rgba(0, 0, 0, 0.05));
+  font-size: var(--f-menu);
+  line-height: 100%;
+  font-weight: bold;
+  color: var(--c-white);
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: u.rem(32.5) 0;
+  }
+  &__logo {
+    width: 40%;
+  }
+  &__nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    height: u.rem(35);
+  }
+  &__form {
+    input {
+      display: none;
+    }
+    button {
+      background: none;
+      height: u.rem(35);
+      border: none;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  &__hamburger {
+    // display: none;
+    background: transparent;
+    height: u.rem(35);
+    border: none;
+    img {
+      height: 100%;
+    }
+  }
+  &__ul {
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    // width: 70%;
+    @media (width >= u.rem(1024)) {
+      display: flex;
+    }
+  }
+  &__li {
+    a {
+      color: var(--c-white);
+    }
+    a.active {
+      color: var(--c-primary);
+    }
+    a.cta {
+      color: var(--c-secondary);
+    }
+  }
+  &__account {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+}
