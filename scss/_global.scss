@@ -120,6 +120,10 @@ li {
 .wrapper {
   width: min(u.rem(1200), calc(100% - u.rem(32)));
   margin-inline: auto;
+
+  @media (width >= u.rem(1728)) {
+    width: u.rem(1488);
+  }
 }
 
 .grid {
