@@ -46,12 +46,11 @@
     }
   }
   &__hamburger {
-    display: none;
     background: transparent;
     height: u.rem(35);
     border: none;
-    @media (width < u.rem(1024)) {
-      display: inline-block;
+    @media (width >= u.rem(1024)) {
+      display: none;
     }
     img {
       height: 100%;

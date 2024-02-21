@@ -1,4 +1,12 @@
 import "./scss/style.scss";
+
+/* Print the height and width of screen to an element with ID of elm */
+// TODO: Delete this Code
+const elm = document.getElementById('elm');
+let deviceWidth = window.innerWidth;
+let deviceHeight = window.innerHeight;
+elm.innerHTML = "Width: " + deviceWidth + "px \t Height: " + deviceHeight + "px";
+
 /**
  ********************************
  *********** CAROUSEL ***********
@@ -73,9 +81,8 @@ function updateActiveDot() {
 dotsNav.addEventListener("click", (e) => {
     const targetDot = e.target;
 
-    if (!targetDot.classList.contains("dot")) return;
+    if (!targetDot) return;
     const targetDotIndex = dots.indexOf(targetDot);
-    console.log("Clicked dot index:", targetDotIndex);
 
     currentSlideIndex = targetDotIndex;
 

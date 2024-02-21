@@ -1,6 +1,7 @@
 @use "../util" as u;
 
 .hero {
+  position: relative;
   &__slider {
     position: relative;
     width: 100%;
@@ -11,25 +12,14 @@
     height: 100%;
   }
   &__dots {
-    position: absolute;
-    display: block;
-    z-index: 1;
-    bottom: u.rem(-10);
-    left: 50%;
-    transform: translateX(-50%);
-    a {
-      display: block;
-      width: 56px;
-      height: 56px;
-      margin: auto auto 17px;
-      padding: u.rem(15);
-    }
+    display: flex;
+    justify-content: center;
+    margin-bottom: u.rem(10);
     button {
       padding: 7.5px;
       border-radius: 50%;
       border-width: 0;
       cursor: pointer;
-      //   box-shadow: var(--ds-white);
       &:not(:last-of-type) {
         margin-right: 5px;
       }
@@ -38,8 +28,19 @@
       }
     }
   }
-  &__slide {
+  .scroll-down {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    bottom: u.rem(15);
+    width: 100%;
+    a {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__slide {
     top: 0;
     bottom: 0;
     width: 100%;
@@ -52,10 +53,15 @@
     flex-direction: column;
     justify-content: end;
     transition: transform 250ms ease-in;
+    .wrapper {
+      z-index: 1;
+    }
   }
   &__movie {
-    height: 64%;
-    z-index: 1;
+    margin-bottom: u.rem(100);
+    @media (width >= u.rem(700)) {
+      width: 50%;
+    }
     h2 {
       font-size: var(--f-h2);
       font-weight: 600;
@@ -151,6 +157,10 @@
     }
     &-casts {
       display: none;
+      @media (width >= u.rem(1024)) {
+        display: block;
+        margin-bottom: u.rem(20);
+      }
     }
     &-description {
       line-height: 100%;
