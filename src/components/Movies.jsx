@@ -22,7 +22,7 @@ function Movies() {
             {movieList.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path
+                        <img loading="lazy" src={`https://image.tmdb.org/t/p/original/${movie.poster_path
                         }`}
                             alt={`${movie.title}`}
                         />
