@@ -1,13 +1,25 @@
-import Movies from "./components/Movies";
+// import Movies from "./components/Movies";
+import {Routes, Route} from "react-router-dom";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import Series from "./pages/Series";
+import Shows from "./pages/Shows";
+import Sports from "./pages/Sports";
+import BeAChiller from "./pages/BeAChiller";
 
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <Movies />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/shows" element={<Shows />} />
+        <Route path="/sports" element={<Sports />} />
+        <Route path="/be-a-chiller" element={<BeAChiller />} />
+      </Routes>
     </>
   )
 }
