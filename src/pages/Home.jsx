@@ -14,11 +14,10 @@ function Home() {
     }, [])
 
     const spotlightMovies = movieList.splice(0, 5);
-    console.log(spotlightMovies);
 
     return (
         <main>
-            <Spotlight spotlightMovies={spotlightMovies} />
+            <Spotlight spotlightMovies={spotlightMovies} autoSlide={true} />
         </main>
     );
 }
