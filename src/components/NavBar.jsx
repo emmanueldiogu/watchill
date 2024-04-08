@@ -33,7 +33,7 @@ function NavBar() {
     ];
 
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 z-10 w-full border-b border-gray-500 py-6">
+        <header className="bg-transparent fixed top-0 left-0 right-0 z-10 w-full py-6 bg-gradient-to-r from-main2/15 to-main1/15">
             <div className="container mx-auto">
                 <div className="grid grid-cols-12 gap-5 items-center justify-between mx-auto">
                     {/* logo */}

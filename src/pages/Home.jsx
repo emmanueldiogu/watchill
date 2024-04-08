@@ -16,9 +16,9 @@ function Home() {
     const spotlightMovies = movieList.splice(0, 5);
 
     return (
-        <main>
+        <>
             <Spotlight spotlightMovies={spotlightMovies} autoSlide={true} />
-        </main>
+        </>
     );
 }
 

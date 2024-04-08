@@ -12,6 +12,9 @@ export default {
       },
       flex: {
         'full': '0 0 100%'
+      },
+      boxShadow: {
+        'glow': '0px 0px 30px rgba(255, 255, 255, 0.20)',
       }
     },
   },

@@ -6,3 +6,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* Add this to your styles.css */
+.spotlight__overlay {
+  background: linear-gradient(
+      61deg,
+      rgba(0, 0, 0, 0.8) 11.52%,
+      rgba(0, 0, 0, 0) 54.06%
+    ),
+    url(<path-to-image>),
+    rgba(211, 211, 211, 0) -542px -285.468px / 131.629% 130.829% no-repeat;
+}
