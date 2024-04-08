@@ -19,14 +19,18 @@ function Spotlight(props) {
             <div className='slider relative flex overflow-hidden'>
                 {props.spotlightMovies.map((movie, index) => {
                     return (
-                        <div key={index} style={{ background: `#950440 url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center / cover `, transform: `translateX(-${curr * 100}%)` }} className="slide flex-full h-dvh transition-transform ease-out duration-500">
-                            <div className="spotlight-content">
-                                <h2>{movie.title}</h2>
+                        <div key={index} style={{ background: `#950440 url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center / cover `, transform: `translateX(-${curr * 100}%)` }} className="slide relative flex-full h-dvh transition-transform ease-out duration-500">
+                            <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
+                            <div className="container mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
+                                <div className="spotlight-content col-span-7 z-10">
+                                    <h2 className=' text-white font-black text-7xl'>{movie.title}</h2>
+                                    <button className='h-10 px-6 font-semibold rounded-md bg-main2 text-black'>Buy now</button>
+                                </div>
                             </div>
                         </div>
                     );
                 })}
-                <div className='absolute z-[1] inset-0 flex items-center justify-between p-4'>
+                <div className='absolute inset-0 flex items-center justify-between p-4'>
                     <button onClick={prev} className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'>
                         <BiChevronLeft size={40} />
                     </button>
@@ -34,7 +38,7 @@ function Spotlight(props) {
                         <BiChevronRight size={40} />
                     </button>
                 </div>
-                <div className="absolute z-[1] bottom-4 right-0 left-0">
+                <div className="absolute bottom-4 right-0 left-0">
                     <div className="flex items-center justify-center gap-2 mb-4">
                         {props.spotlightMovies.map((_, i) => (
                             <div
@@ -50,7 +54,6 @@ function Spotlight(props) {
                         </a>
                     </div>
                 </div>
-                <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
             </div>
         </section>
     );
