@@ -36,7 +36,7 @@ function Spotlight(props) {
                             <div className="container px-4 mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
                                 <div className="movie-details col-span-12 md:col-span-7 z-10 text-white">
                                     <h3 className="text-clamp-h2 font-bold mb-10">Available Now</h3>
-                                    <h2 className='font-black text-4xl mb-10'>{movie.title}</h2>
+                                    <h2 className='font-black text-clamp-h1 mb-10'>{movie.title}</h2>
                                     <div className=' md:w-3/4'>
                                         <div className="flex items-center justify-start gap-10 text-sm font-medium mb-5">
                                             <h4>{getGenreNamesByIds(movie.genre_ids, genres.genres).join(', ')}</h4>

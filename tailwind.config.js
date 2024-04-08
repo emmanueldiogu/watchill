@@ -18,6 +18,7 @@ export default {
         'glow-2': '0px 0px 20px rgba(239, 217, 18, 0.80)',
       },
       fontSize: {
+        'clamp-h1': 'clamp(2.25rem, 1.6612359550561797rem + 2.397003745318352vw, 4.25rem)',
         'clamp-h2': 'clamp(1.5rem, 1.3528089887640449rem + 0.599250936329588vw, 2rem)',
         'clamp-h3': 'clamp(1.25rem, 1.1764044943820224rem + 0.299625468164794vw, 1.5rem)',
         'clamp-h4': 'clamp(1rem, 0.9632022471910112rem + 0.149812734082397vw, 1.125rem)',
