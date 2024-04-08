@@ -14,7 +14,14 @@ export default {
         'full': '0 0 100%'
       },
       boxShadow: {
-        'glow': '0px 0px 30px rgba(255, 255, 255, 0.20)',
+        'glow': '0px 0px 20px rgba(255, 255, 255, 0.80)',
+        'glow-2': '0px 0px 20px rgba(239, 217, 18, 0.80)',
+      },
+      fontSize: {
+        'clamp-h2': 'clamp(1.5rem, 1.3528089887640449rem + 0.599250936329588vw, 2rem)',
+        'clamp-h3': 'clamp(1.25rem, 1.1764044943820224rem + 0.299625468164794vw, 1.5rem)',
+        'clamp-h4': 'clamp(1rem, 0.9632022471910112rem + 0.149812734082397vw, 1.125rem)',
+        'clamp-menu': 'clamp(1.125rem, 1.0882022471910113rem + 0.149812734082397vw, 1.25rem)',
       }
     },
   },

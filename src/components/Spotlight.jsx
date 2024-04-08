@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { BiChevronLeft, BiChevronRight, BiSolidChevronsDown } from 'react-icons/bi';
+import { BiChevronLeft, BiChevronRight } from 'react-icons/bi';
+import scrollDown from "../assets/img/icons/scroll-down.png";
+import calenderIcon from "../assets/img/icons/calendar_month.png";
+import alarmIcon from "../assets/img/icons/alarm.png";
+import { genres } from "./../components/Data";
 
 function Spotlight(props) {
 
@@ -8,6 +12,14 @@ function Spotlight(props) {
     const prev = () => setCurr((curr) => (curr === 0 ? props.spotlightMovies.length - 1 : curr - 1));
     const next = () => setCurr((curr) => (curr === props.spotlightMovies.length - 1 ? 0 : curr + 1));
     const dot = (index) => setCurr(index);
+
+    // Function to find genre names by ids
+    const getGenreNamesByIds = (ids, allGenres) => {
+        return ids.map(id => {
+            const genre = allGenres.find(genre => genre.id === id);
+            return genre ? genre.name : null;
+        }).filter(Boolean); // This will remove any null values if a genre is not found
+    };
 
     useEffect(() => {
         if (!props.autoSlide) return;
@@ -21,16 +33,55 @@ function Spotlight(props) {
                     return (
                         <div key={index} style={{ background: `#950440 url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center / cover `, transform: `translateX(-${curr * 100}%)` }} className="slide relative flex-full h-dvh transition-transform ease-out duration-500">
                             <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
-                            <div className="container mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
-                                <div className="spotlight-content col-span-7 z-10">
-                                    <h2 className=' text-white font-black text-7xl'>{movie.title}</h2>
-                                    <button className='h-10 px-6 font-semibold rounded-md bg-main2 text-black'>Buy now</button>
+                            <div className="container px-4 mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
+                                <div className="movie-details col-span-12 md:col-span-7 z-10 text-white">
+                                    <h3 className="text-clamp-h2 font-bold mb-10">Available Now</h3>
+                                    <h2 className='font-black text-4xl mb-10'>{movie.title}</h2>
+                                    <div className=' md:w-3/4'>
+                                        <div className="flex items-center justify-start gap-10 text-sm font-medium mb-5">
+                                            <h4>{getGenreNamesByIds(movie.genre_ids, genres.genres).join(', ')}</h4>
+                                            <div className="flex items-center justify-between">
+                                                <div className="w-6"><img src={calenderIcon} alt="" /></div>
+                                                <h4 className='ml-2'>{movie.release_date ? movie.release_date.slice(0, 4) : "N/A"}</h4>
+                                            </div>
+                                            <div className="flex items-center justify-between">
+                                                <div className="w-6"><img src={alarmIcon} alt="" /></div>
+                                                <h4 className='ml-2'>{movie.duration ? `${movie.duration}m` : "N/A"}</h4>
+                                            </div>
+                                        </div>
+                                        <div className=' text-clamp-h4 font-semibold mb-5'>
+                                            IMDb Rating <span className="font-['Anton'] font-normal text-sm bg-main1 px-1 py-[3px] rounded-[3px] ml-2">{movie.vote_average ? movie.vote_average.toFixed(2) : "N/A"}</span>
+                                        </div>
+                                        <div className="flex items-center justify-between gap-5 w-1/4 mb-5">
+                                            <a className='p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2'>
+                                                <span>Rent</span>
+                                                <span className=' font-semibold text-clamp-h3'>$8.99</span>
+                                            </a>
+                                            <a className='p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2'>
+                                                <span>Buy</span>
+                                                <span className=' font-semibold text-clamp-h3'>$18.99</span>
+                                            </a>
+                                        </div>
+                                        <div className="hidden">
+                                            <div className="flex text-sm">
+                                                <h4 className='font-medium mr-5'>Director</h4>
+                                                <p className=' font-light'>Denis Villeneuve</p>
+                                            </div>
+                                            <div className="flex text-sm mb-5">
+                                                <h4 className='font-medium mr-5'>Staring</h4>
+                                                <p className=' font-light'>Timothée Chalamet, Zendaya, Rebecca Ferguson</p>
+                                            </div>
+                                        </div>
+                                        <p className='text-sm font-light'>
+                                            {movie.overview}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     );
                 })}
-                <div className='absolute inset-0 flex items-center justify-between p-4'>
+                <div className='absolute inset-0 items-center justify-between p-4 hidden'>
                     <button onClick={prev} className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'>
                         <BiChevronLeft size={40} />
                     </button>
@@ -49,8 +100,8 @@ function Spotlight(props) {
                         ))}
                     </div>
                     <div className='flex items-center justify-center'>
-                        <a href='#main' className='p-1 w-14 h-14 text-white flex items-center justify-center'>
-                            <BiSolidChevronsDown size={56} className='shadow-glow' />
+                        <a href='#features' className='p-1 w-14 h-14 text-white flex items-center justify-center'>
+                            <img src={scrollDown} alt="" />
                         </a>
                     </div>
                 </div>
