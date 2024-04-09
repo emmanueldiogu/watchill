@@ -8,23 +8,21 @@ import userImg from '../assets/img/icons/account.png'
 function NavBar() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSticky, setIsSticky] = useState(false);
-    console.log(isMenuOpen);
+    // const [isSticky, setIsSticky] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-        console.log(isMenuOpen);
     }
 
     useEffect(() => {
-        const handleScroll = () => {
-            (window.scrollY > 100) ? setIsSticky(true) : setIsSticky(false);
-        };
-        window.addEventListener('scroll', handleScroll);
+        // const handleScroll = () => {
+        //     (window.scrollY > 100) ? setIsSticky(true) : setIsSticky(false);
+        // };
+        // window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.addEventListener('scroll', handleScroll);
-        }
+        // return () => {
+        //     window.addEventListener('scroll', handleScroll);
+        // }
     });
 
     // nav items array

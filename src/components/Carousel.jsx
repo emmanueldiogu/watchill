@@ -18,11 +18,9 @@ function Carousel(props) {
     }), [props.autoSlide, props.autoSlideInterval, next];
     return (
         <section className="carousel">
-            <div className={`${props.sectionName} slider relative container mx-auto flex gap-5 h-[310px] overflow-hidden p-4`}>
+            <div className={`${props.sectionName} slider relative flex gap-5 h-[310px] overflow-hidden`}>
                 {props.movieList.map((movie, index) => {
-                    // Assuming each slide is 41.67% of the container width
                     // const slide = document.querySelector(`.${props.sectionName} .slide`)
-                    console.log(slide);
                     // const slideWidth = slide.clientWidth;
                     const slideWidth = 40;
                     // Calculate the total translation percentage

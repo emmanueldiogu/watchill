@@ -27,7 +27,7 @@ function Spotlight(props) {
         return () => clearInterval(slideInterval)
     });
     return (
-        <section className="spotlight">
+        <section id="spotlight">
             <div className='slider relative flex overflow-hidden group'>
                 {props.spotlightMovies.map((movie, index) => {
                     return (
