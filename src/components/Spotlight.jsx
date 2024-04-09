@@ -28,14 +28,14 @@ function Spotlight(props) {
     });
     return (
         <section className="spotlight">
-            <div className='slider relative flex overflow-hidden'>
+            <div className='slider relative flex overflow-hidden group'>
                 {props.spotlightMovies.map((movie, index) => {
                     return (
                         <div key={index} style={{ background: `#950440 url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center / cover `, transform: `translateX(-${curr * 100}%)` }} className="slide relative flex-full h-dvh transition-transform ease-out duration-500">
                             <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
                             <div className="container px-4 mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
-                                <div className="movie-details col-span-12 md:col-span-7 z-10 text-white">
-                                    <h3 className="text-clamp-h2 font-bold mb-10">Available Now</h3>
+                                <div className="movie-details col-span-12 lg:col-span-7 z-10 text-white">
+                                    <h3 className="text-clamp-h2 font-bold md:mb-10">Available Now</h3>
                                     <h2 className='font-black text-clamp-h1 mb-10'>{movie.title}</h2>
                                     <div className=' md:w-3/4'>
                                         <div className="flex items-center justify-start gap-10 text-sm font-medium mb-5">
@@ -72,7 +72,7 @@ function Spotlight(props) {
                                                 <p className=' font-light'>Timothée Chalamet, Zendaya, Rebecca Ferguson</p>
                                             </div>
                                         </div>
-                                        <p className='text-sm font-light'>
+                                        <p className='text-sm font-light line-clamp-3'>
                                             {movie.overview}
                                         </p>
                                     </div>
@@ -81,10 +81,12 @@ function Spotlight(props) {
                         </div>
                     );
                 })}
-                <div className='absolute inset-0 items-center justify-between p-4 hidden'>
+                <div className='absolute left-0 top-1/2 -translate-y-1/2 p-4  hidden group-hover:block'>
                     <button onClick={prev} className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'>
                         <BiChevronLeft size={40} />
                     </button>
+                </div>
+                <div className='absolute right-0 top-1/2 -translate-y-1/2 p-4  hidden group-hover:block'>
                     <button onClick={next} className='p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white'>
                         <BiChevronRight size={40} />
                     </button>

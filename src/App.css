@@ -18,6 +18,13 @@ body {
     rgba(211, 211, 211, 0) -542px -285.468px / 131.629% 130.829% no-repeat;
 }
 
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
 .best-chills .slide {
   border: 5px solid rgb(239, 217, 18);
 }

@@ -9,9 +9,11 @@ function NavBar() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
+    console.log(isMenuOpen);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        console.log(isMenuOpen);
     }
 
     useEffect(() => {
@@ -36,11 +38,11 @@ function NavBar() {
     return (
         <header className="fixed top-0 left-0 right-0 z-10 w-full py-6 bg-slate-950/40">
             <div className="container px-4 mx-auto">
-                <div className="grid grid-cols-8 md:grid-cols-12 gap-5 items-center justify-between mx-auto">
+                <div className="grid grid-cols-8 lg:grid-cols-12 gap-5 items-center justify-between mx-auto">
                     {/* logo */}
-                    <a href="/" className="col-span-3 md:col-span-4 h-9"><img src={logo} alt="logo" /><span className="hidden">Home</span></a>
+                    <a href="/" className="col-span-3 lg:col-span-4"><img src={logo} alt="logo" /><span className="hidden">Home</span></a>
                     {/* menu */}
-                    <nav className="flex items-center justify-self-end md:justify-self-stretch gap-5 justify-around col-span-4 md:col-span-7">
+                    <nav className="flex items-center justify-self-end lg:justify-self-stretch gap-5 justify-around col-span-4 lg:col-span-7">
                         <form>
                             <button>
                                 <img src={searchIcon} alt="" className=" w-6 h-6 md:w-10 md:h-10" />
@@ -48,19 +50,20 @@ function NavBar() {
                             <label htmlFor="search"></label>
                             <input type="text" name="search" id="search" className="hidden" />
                         </form>
-                        <div className="text-white md:hidden">
-                            <button><BiMenu size={24} /></button>
+                        <div className="text-white lg:hidden">
+                            <button onClick={toggleMenu}><BiMenu className="w-6 md:w-10 h-6 md:h-10" /></button>
                         </div>
-                        <div className="md:flex md:items-center md:justify-evenly hidden gap-5 w-full">
+                        <div className={isMenuOpen ? "lg:flex lg:items-center lg:justify-evenly flex flex-col gap-5 w-full" : "lg:flex lg:items-center lg:justify-evenly hidden gap-5 w-full"}>
                             {
-                                navItems.map(({ link, path }) => (
+                                navItems.map(({ link, path }, index) => (
                                     <NavLink
                                         key={path}
                                         to={path}
                                         className={({ isActive }) =>
                                             [
                                                 "hover:text-main1 font-bold text-clamp-menu", // classes applied in both active and inactive states
-                                                isActive ? "active text-main1 hover:text-main2 font-bold" : "text-white"
+                                                isActive ? "active text-main1 hover:text-main2 font-bold" : "text-white",
+                                                index === navItems.length - 1 ? "text-main2 hover:text-main1" : ""
                                             ].filter(Boolean).join(' ')
                                         }
                                     >
