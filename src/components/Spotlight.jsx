@@ -101,9 +101,9 @@ function Spotlight(props) {
                             />
                         ))}
                     </div>
-                    <div className='flex items-center justify-center'>
+                    <div className='flex items-center justify-center motion-safe:animate-bounce'>
                         <a href='#features' className='p-1 w-14 h-14 text-white flex items-center justify-center'>
-                            <img src={scrollDown} alt="" />
+                            <img src={scrollDown} alt="/" />
                         </a>
                     </div>
                 </div>

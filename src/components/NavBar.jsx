@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from '../assets/watchill.svg';
 import { BiMenu } from "react-icons/bi";
 import searchIcon from '../assets/img/icons/search.png'
@@ -7,12 +7,21 @@ import userImg from '../assets/img/icons/account.png'
 
 function NavBar() {
 
+    const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     // const [isSticky, setIsSticky] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     }
+
+    // nav items array
+    const navItems = [
+        { link: "Movies", path: "/" },
+        { link: "Series", path: "series" },
+        { link: "Shows", path: "shows" },
+        { link: "Be a Chiller", path: "be-a-chiller" },
+    ];
 
     useEffect(() => {
         // const handleScroll = () => {
@@ -23,15 +32,10 @@ function NavBar() {
         // return () => {
         //     window.addEventListener('scroll', handleScroll);
         // }
-    });
+        const activeNavItem = navItems.find(item => location.pathname === item.path);
+        document.title = activeNavItem ? `${activeNavItem.link} | WatChill` : 'WatChill';
+    }, [location, navItems]);
 
-    // nav items array
-    const navItems = [
-        { link: "Movies", path: "/" },
-        { link: "Series", path: "series" },
-        { link: "Shows", path: "shows" },
-        { link: "Be a Chiller", path: "be-a-chiller" },
-    ];
 
     return (
         <header className="fixed top-0 left-0 right-0 z-10 w-full py-6 bg-slate-950/40">
