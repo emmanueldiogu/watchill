@@ -29,9 +29,9 @@ function Home() {
 
     return (
         <>
-            <Spotlight spotlightMovies={spotlightMovies} autoSlide={false} />
+            <Spotlight spotlightMovies={spotlightMovies} autoSlide={true} />
             <main id="features" className="mt-14">
-                <div className='flex items-center justify-center mb-12 md:mb-16 pt-16'>
+                <div className='flex items-center justify-center mb-12 md:mb-16 pt-20'>
                     <a href='#spotlight' className='p-1 w-14 h-14 text-white flex items-center justify-center'>
                         <img src={scrollUp} alt="" />
                     </a>

@@ -47,7 +47,7 @@ function NavBar() {
                     <nav className="flex items-center justify-self-end lg:justify-self-stretch gap-5 justify-around col-span-4 lg:col-span-7">
                         <form>
                             <button>
-                                <img src={searchIcon} alt="" className=" w-6 h-6 md:w-10 md:h-10" />
+                                <img src={searchIcon} alt="" className=" w-6 md:w-10" />
                             </button>
                             <label htmlFor="search"></label>
                             <input type="text" name="search" id="search" className="hidden" />

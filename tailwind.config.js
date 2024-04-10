@@ -14,7 +14,7 @@ export default {
         'full': '0 0 100%'
       },
       boxShadow: {
-        'glow': '0px 0px 20px rgba(255, 255, 255, 0.80)',
+        'glow': '0px 0px 20px 4px rgba(255, 255, 255, 0.80)',
         'glow-2': '0px 0px 20px rgba(239, 217, 18, 0.80)',
       },
       fontSize: {

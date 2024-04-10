@@ -9,6 +9,7 @@ import { genres } from "./../components/Data";
 function Spotlight(props) {
 
     const [curr, setCurr] = useState(0);
+    const [autoSlide, setAutoSlide] = useState(props.autoSlide);
     const prev = () => setCurr((curr) => (curr === 0 ? props.spotlightMovies.length - 1 : curr - 1));
     const next = () => setCurr((curr) => (curr === props.spotlightMovies.length - 1 ? 0 : curr + 1));
     const dot = (index) => setCurr(index);
@@ -22,13 +23,16 @@ function Spotlight(props) {
     };
 
     useEffect(() => {
-        if (!props.autoSlide) return;
+        if (!autoSlide) return;
         const slideInterval = setInterval(next, props.autoSlideInterval)
         return () => clearInterval(slideInterval)
     });
     return (
         <section id="spotlight">
-            <div className='slider relative flex overflow-hidden group'>
+            <div
+                className='slider relative flex overflow-hidden group'
+                onMouseOver={() => setAutoSlide(false)}
+                onMouseOut={() => setAutoSlide(props.autoSlide)}>
                 {props.spotlightMovies.map((movie, index) => {
                     return (
                         <div key={index} style={{ background: `#950440 url(https://image.tmdb.org/t/p/original/${movie.backdrop_path}) no-repeat center / cover `, transform: `translateX(-${curr * 100}%)` }} className="slide relative flex-full h-dvh transition-transform ease-out duration-500">
@@ -97,7 +101,7 @@ function Spotlight(props) {
                             <div
                                 onClick={() => dot(i)}
                                 key={i}
-                                className={` cursor-pointer transition-all w-3 h-3 bg-white rounded-full ${curr === i ? "p-2 shadow-glow" : "bg-opacity-50"}`}
+                                className={`cursor-pointer transition-all w-4 h-4  rounded-full ${curr === i ? "shadow-glow bg-white" : "bg-gray-500"}`}
                             />
                         ))}
                     </div>
