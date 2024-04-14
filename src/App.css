@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 html {
-  scrollbar-width: thin;
-  scrollbar-color: #efd912 #db0660;
+  scrollbar-width: inherit;
+  scrollbar-color: #db0660 #000;
 }
 
 body {
@@ -21,13 +21,6 @@ body {
     ),
     url(<path-to-image>),
     rgba(211, 211, 211, 0) -542px -285.468px / 131.629% 130.829% no-repeat;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
 }
 
 .best-chills .slide {

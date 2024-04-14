@@ -1,31 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Spotlight from "../components/Spotlight";
 import scrollUp from "../assets/img/icons/scroll-up.png";
 import Carousel from "../components/Carousel";
+import { requests } from "../Request";
 
 function Home() {
     const [movieList, setMovieList] = useState([]);
-    const [tvList, setTvList] = useState([]);
-    const movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&append_to_response=video,image`;
-    const tvURL = `https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.env.VITE_MOVIE_API_KEY}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&sort_by=popularity.desc`;
 
-    const getMovies = () => {
-        fetch(movieURL)
+    const getMovies = useCallback(() => {
+        fetch(requests.discovery)
             .then(res => res.json())
-            .then(json => setMovieList(json.results))
-    }
+            .then(json => setMovieList(json.results));
+    }, []);
 
-    const getTV = () => {
-        fetch(tvURL)
-            .then(res => res.json())
-            .then(json => setTvList(json.results))
-    }
     useEffect(() => {
         getMovies();
-        getTV();
-    }, [])
+    }, [getMovies]);
 
-    const spotlightMovies = movieList.splice(0, 5);
+
+    const spotlightMovies = movieList.splice(0, 10);
 
     return (
         <>
@@ -38,27 +31,27 @@ function Home() {
                 </div>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Best Chills for You</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={1} movieList={spotlightMovies} autoSlide={false} className=" h-[100px]" />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Keep Watching</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={2} movieList={spotlightMovies} autoSlide={false} slideSize={3} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Popular on Watchill</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={3} movieList={spotlightMovies} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Top Action Shows</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={4} movieList={spotlightMovies} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Subscription or Buy</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={5} movieList={spotlightMovies} autoSlide={false} />
                 </section>
                 <section className="container p-4 mx-auto mb-12">
                     <h2 className=" text-clamp-h2 font-semibold mb-8 text-white">Upcoming</h2>
-                    <Carousel sectionName={'best-chills'} movieList={spotlightMovies} autoSlide={false} />
+                    <Carousel sectionID={6} movieList={spotlightMovies} autoSlide={false} slideSize={3} />
                 </section>
             </main>
         </>

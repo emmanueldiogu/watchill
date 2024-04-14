@@ -161,4 +161,12 @@ const genres = {
         }
     ]
 }
-export { tmdbMovies, genres };
+
+const navItems = [
+    { link: "Movies", path: "/" },
+    { link: "Series", path: "/series" },
+    { link: "Shows", path: "/shows" },
+    { link: "Be a Chiller", path: "/be-a-chiller" },
+];
+
+export { tmdbMovies, genres, navItems };

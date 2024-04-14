@@ -4,41 +4,40 @@ import logo from '../assets/watchill.svg';
 import { BiMenu } from "react-icons/bi";
 import searchIcon from '../assets/img/icons/search.png'
 import userImg from '../assets/img/icons/account.png'
+import { navItems } from "./Data";
 
 function NavBar() {
 
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // const [isSticky, setIsSticky] = useState(false);
+    const [isSticky, setIsSticky] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     }
 
-    // nav items array
-    const navItems = [
-        { link: "Movies", path: "/" },
-        { link: "Series", path: "series" },
-        { link: "Shows", path: "shows" },
-        { link: "Be a Chiller", path: "be-a-chiller" },
-    ];
-
     useEffect(() => {
-        // const handleScroll = () => {
-        //     (window.scrollY > 100) ? setIsSticky(true) : setIsSticky(false);
-        // };
-        // window.addEventListener('scroll', handleScroll);
+        // code that we want to run
+        // codes here will always run at least once
+        //therefore, this code runs on mount
+        const handleScroll = () => {
+            (window.scrollY > 100) ? setIsSticky(true) : setIsSticky(false);
+        };
+        window.addEventListener('scroll', handleScroll);
 
-        // return () => {
-        //     window.addEventListener('scroll', handleScroll);
-        // }
         const activeNavItem = navItems.find(item => location.pathname === item.path);
         document.title = activeNavItem ? `${activeNavItem.link} | WatChill` : 'WatChill';
-    }, [location, navItems]);
+
+        // the optional return function
+        return () => {
+            window.addEventListener('scroll', handleScroll);
+        }
+
+    }, [location.pathname]); //dependency array
 
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-10 w-full py-6 bg-slate-950/40">
+        <header className={`fixed top-0 left-0 right-0 z-10 w-full transition-all ${isSticky ? "py-2" : "py-6"} bg-slate-950/40`}>
             <div className="container px-4 mx-auto">
                 <div className="grid grid-cols-8 lg:grid-cols-12 gap-5 items-center justify-between mx-auto">
                     {/* logo */}
