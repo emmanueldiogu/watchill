@@ -10,28 +10,40 @@ function Carousel(props) {
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (slider) {
             // Access the slider element and perform any necessary actions
-            console.log('Slider element found:', slider.offsetWidth / props.slideSize);
+            console.log('Slider element found:', slider.offsetWidth);
         }
     }, [props.sectionID, props.slideSize]); // Run this effect whenever sectionID changes
     const prev = () => {
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (!slider) return (slider);
-        slider.scrollLeft = slider.scrollLeft - slider.offsetWidth / props.slideSize;
+        if (slider.offsetWidth < 625) {
+            slider.scrollLeft = slider.scrollLeft - slider.offsetWidth;
+        } else if (slider.offsetWidth < 753) {
+            slider.scrollLeft = slider.scrollLeft - slider.offsetWidth / 2;
+        } else {
+            slider.scrollLeft = slider.scrollLeft - slider.offsetWidth / props.slideSize;
+        }
     };
 
     const next = () => {
 
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (!slider) return (slider);
-        slider.scrollLeft = slider.scrollLeft + slider.offsetWidth / props.slideSize;
+        if (slider.offsetWidth < 625) {
+            slider.scrollLeft = slider.scrollLeft + slider.offsetWidth;
+        } else if (slider.offsetWidth < 753) {
+            slider.scrollLeft = slider.scrollLeft + slider.offsetWidth / 2;
+        } else {
+            slider.scrollLeft = slider.scrollLeft + slider.offsetWidth / props.slideSize;
+        }
     };
 
     return (
-        <div className='relative group'>
+        <div className='relative overflow-hidden group'>
             <div id={`slider-${props.sectionID}`} className="slider flex -ml-4 overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide">
                 {props.movieList.map((movie, index) => {
                     return (
-                        <div key={index} className={`slide min-w-0 shrink-0 grow-0 basis-full pl-4 md:basis-1/2 ${(props.slideSize === 4) ? 'lg:basis-1/4' : 'lg:basis-1/3'}`}>
+                        <div key={index} className={`slide min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-[10px] shadow-custom md:basis-1/2 ${(props.slideSize === 4) ? 'lg:basis-1/4' : 'lg:basis-1/3'}`}>
                             <img src={`${image_uri}/w500/${movie.backdrop_path}`} className='w-full' alt="" />
                         </div>
                     );

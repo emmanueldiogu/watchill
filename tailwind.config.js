@@ -16,6 +16,7 @@ export default {
       boxShadow: {
         'glow': '0px 0px 20px 4px rgba(255, 255, 255, 0.80)',
         'glow-2': '0px 0px 20px rgba(239, 217, 18, 0.80)',
+        'custom': '0px 10px 25px 1px #270011'
       },
       fontSize: {
         'clamp-h1': 'clamp(2.25rem, 1.6612359550561797rem + 2.397003745318352vw, 4.25rem)',
