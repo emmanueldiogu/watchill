@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // import { useEffect, useState } from "react";
 
-function Movies(props) {
+function Movies() {
 
 
 
