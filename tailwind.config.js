@@ -16,7 +16,8 @@ export default {
       boxShadow: {
         'glow': '0px 0px 20px 4px rgba(255, 255, 255, 0.80)',
         'glow-2': '0px 0px 20px rgba(239, 217, 18, 0.80)',
-        'custom': '0px 10px 25px 1px #270011'
+        'custom': '0px 10px 25px 1px #270011',
+        'input': '0px 4px 4px 0px rgba(9, 9, 9, 0.30) inset'
       },
       fontSize: {
         'clamp-h1': 'clamp(2.25rem, 1.6612359550561797rem + 2.397003745318352vw, 4.25rem)',
@@ -24,6 +25,9 @@ export default {
         'clamp-h3': 'clamp(1.25rem, 1.1764044943820224rem + 0.299625468164794vw, 1.5rem)',
         'clamp-h4': 'clamp(1rem, 0.9632022471910112rem + 0.149812734082397vw, 1.125rem)',
         'clamp-menu': 'clamp(1.125rem, 1.0882022471910113rem + 0.149812734082397vw, 1.25rem)',
+      },
+      lineHeight: {
+        '100': '100%'
       }
     },
   },

@@ -19,7 +19,7 @@ function NavBar() {
     useEffect(() => {
         // code that we want to run
         // codes here will always run at least once
-        //therefore, this code runs on mount
+        // therefore, this code runs on mount
         const handleScroll = () => {
             (window.scrollY > 100) ? setIsSticky(true) : setIsSticky(false);
         };
@@ -62,8 +62,7 @@ function NavBar() {
                                         to={path}
                                         className={({ isActive }) =>
                                             [
-                                                "hover:text-main1 font-bold text-clamp-menu", // classes applied in both active and inactive states
-                                                isActive ? "active text-main1 hover:text-main2 font-bold" : "text-white",
+                                                "hover:text-main1 font-bold text-clamp-menu", isActive ? "active text-main1 hover:text-main2 font-bold" : "text-white",
                                                 index === navItems.length - 1 ? "text-main2 hover:text-main1" : ""
                                             ].filter(Boolean).join(' ')
                                         }

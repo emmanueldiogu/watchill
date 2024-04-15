@@ -18,7 +18,7 @@ function Home() {
     }, [getMovies]);
 
 
-    const spotlightMovies = movieList.splice(0, 10);
+    const spotlightMovies = movieList.splice(0, 5);
 
     return (
         <>

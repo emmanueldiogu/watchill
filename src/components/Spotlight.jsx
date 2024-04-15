@@ -57,10 +57,10 @@ function Spotlight(props) {
                             <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
                             <div className="container px-4 mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
                                 <div className="movie-details col-span-12 lg:col-span-7 z-10 text-white">
-                                    <h3 className="text-clamp-h2 leading-[100%] font-bold md:mb-10">
+                                    <h3 className="text-clamp-h2 leading-100 font-bold md:mb-10">
                                         Available Now
                                     </h3>
-                                    <h2 className="font-black text-clamp-h1 mb-10 leading-[100%] line-clamp-2">
+                                    <h2 className="font-black text-clamp-h1 mb-10 leading-100 line-clamp-2">
                                         {movie.title}
                                     </h2>
                                     <div className=" md:w-3/4">
@@ -99,13 +99,13 @@ function Spotlight(props) {
                                             </span>
                                         </div>
                                         <div className="flex items-center justify-between gap-5 w-1/4 mb-5">
-                                            <a className="p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2">
+                                            <a href="/be-a-chiller" className="p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2">
                                                 <span>Rent</span>
                                                 <span className=" font-semibold text-clamp-h3">
                                                     $8.99
                                                 </span>
                                             </a>
-                                            <a className="p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2">
+                                            <a href="/be-a-chiller" className="p-3 flex flex-col gap-1 leading-none cursor-pointer text-clamp-h4 font-bold rounded-md bg-gradient-to-r from-main2 to-[#c7b512] hover:to-main1 text-black shadow-glow-2">
                                                 <span>Buy</span>
                                                 <span className=" font-semibold text-clamp-h3">
                                                     $18.99

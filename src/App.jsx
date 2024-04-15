@@ -7,13 +7,14 @@ import Series from "./pages/Series";
 import Shows from "./pages/Shows";
 import Sports from "./pages/Sports";
 import BeAChiller from "./pages/BeAChiller";
-import Movies from "./components/Movies";
+// import Movies from "./components/Movies";
 
 function App() {
+  const currentPath = window.location.pathname;
 
   return (
     <>
-      <NavBar />
+      {currentPath !== '/be-a-chiller' && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/" element={<Movies />} /> */}

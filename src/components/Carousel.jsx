@@ -10,7 +10,6 @@ function Carousel(props) {
         const slider = document.getElementById(`slider-${props.sectionID}`);
         if (slider) {
             // Access the slider element and perform any necessary actions
-            console.log('Slider element found:', slider.offsetWidth);
         }
     }, [props.sectionID, props.slideSize]); // Run this effect whenever sectionID changes
     const prev = () => {
