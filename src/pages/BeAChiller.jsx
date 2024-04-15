@@ -16,7 +16,7 @@ function BeAChiller() {
         <main className={" w-full h-dvh"} style={{ background: 'url(/signin-lg.jpg) lightgray center/cover no-repeat' }}
         >
             <div className="bg-gradient-to-r from-black to-black/0 h-full w-full">
-                <div className="container h-full">
+                <div className="container mx-auto h-full">
                     <div className="flex flex-col lg:flex-row justify-start gap-5 lg:justify-between items-center h-full">
                         <div className="flex justify-center items-end w-full lg:w-1/2 p-5">
                             <img src={wachillLogo} alt="watchill logo" className="w-full lg:w-1/2" />

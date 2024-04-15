@@ -1,5 +1,5 @@
 // import Movies from "./components/Movies";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
@@ -10,7 +10,7 @@ import BeAChiller from "./pages/BeAChiller";
 // import Movies from "./components/Movies";
 
 function App() {
-  const currentPath = window.location.pathname;
+  const currentPath = useLocation().pathname;
 
   return (
     <>
