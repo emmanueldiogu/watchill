@@ -52,7 +52,7 @@ function Spotlight(props) {
                                 background: `#950440 url(${image_uri}/original/${movie.backdrop_path}) no-repeat center / cover `,
                                 transform: `translateX(-${curr * 100}%)`,
                             }}
-                            className="slide relative flex-full h-dvh transition-transform ease-out duration-500"
+                            className="slide relative flex-full h-dvh overflow-y-auto transition-transform ease-out duration-500"
                         >
                             <div className="spotlight__overlay absolute top-0 right-0 bottom-0 left-0 w-full"></div>
                             <div className="container px-4 mx-auto h-dvh grid grid-cols-12 gap-5 content-end pb-28">
@@ -112,7 +112,7 @@ function Spotlight(props) {
                                                 </span>
                                             </a>
                                         </div>
-                                        <div className="hidden">
+                                        <div className="hidden md:block">
                                             <div className="flex text-sm">
                                                 <h4 className="font-medium mr-5">Director</h4>
                                                 <p className=" font-light">Denis Villeneuve</p>

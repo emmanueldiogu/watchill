@@ -13,9 +13,9 @@ function BeAChiller() {
     }
 
     return (
-        <main className={" w-full h-dvh"} style={{ background: 'url(/signin-lg.jpg) lightgray center/cover no-repeat' }}
+        <main className={" w-full h-dvh overflow-y-auto"} style={{ background: 'url(/signin-lg.jpg) lightgray center/cover no-repeat' }}
         >
-            <div className="bg-gradient-to-r from-black to-black/0 h-full w-full">
+            <div className="bg-gradient-to-r from-black to-black/0 h-full overflow-y-auto w-full">
                 <div className="container mx-auto h-full">
                     <div className="flex flex-col lg:flex-row justify-start gap-5 lg:justify-between items-center h-full">
                         <div className="flex justify-center items-end w-full lg:w-1/2 p-5">
@@ -30,14 +30,14 @@ function BeAChiller() {
                                         <input
                                             type="text"
                                             id="email"
-                                            className="w-full px-5 py-[0.69rem] text-base border border-[#737373] rounded-md text-white shadow-inner focus:outline-none focus:border-blue-500 bg-[#303030]"
+                                            className="w-full px-5 py-[0.69rem] text-base border border-[#737373] rounded-md text-main2 shadow-inner focus:outline-none focus:border-main1 bg-[#303030]"
                                         />
                                     </div>
                                     <div className="mb-5">
                                         <label htmlFor="password" className="inline-block text-white font-medium text-sm leading-100 mb-2">Password</label>
                                         <input
                                             type="password"
-                                            className="w-full px-5 py-[0.69rem] text-base border border-[#737373] rounded-md text-white shadow-inner focus:outline-none focus:border-blue-500 bg-[#303030]"
+                                            className="w-full px-5 py-[0.69rem] text-base border border-[#737373] rounded-md text-main2 shadow-inner focus:outline-none focus:border-main1 bg-[#303030]"
                                         />
                                     </div>
                                     <div className="mb-5">
@@ -51,7 +51,7 @@ function BeAChiller() {
                                         </button>
                                     </div>
                                     <div>
-                                        <input type="checkbox" name="remember" id="remember" className="border border-[#737373] rounded-md text-white shadow-inner focus:outline-none focus:border-blue-500 bg-[#303030]" /> <label htmlFor="remember" className="text-white font-light text-sm leading-100 italic">Remember me</label>
+                                        <input type="checkbox" name="remember" id="remember" className="border border-[#737373] rounded-md text-main2 shadow-inner focus:outline-none focus:border-main1 bg-[#303030]" /> <label htmlFor="remember" className="text-white font-light text-sm leading-100 italic">Remember me</label>
                                     </div>
                                 </form>
                                 <div className="flex justify-between lg:justify-center lg:flex-col mb-7">
