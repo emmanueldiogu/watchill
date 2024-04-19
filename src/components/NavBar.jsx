@@ -74,7 +74,7 @@ function NavBar() {
                         </div>
                     </nav>
                     {/* account */}
-                    <Link to="" className="col-span-1 justify-self-end  w-8 h-8 md:w-10 md:h-10 rounded-full">
+                    <Link to="/be-a-chiller" className="col-span-1 justify-self-end  w-8 h-8 md:w-10 md:h-10 rounded-full">
                         <img src={userImg} alt="" className="rounded-full" />
                     </Link>
                 </div>

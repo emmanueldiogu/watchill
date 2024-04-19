@@ -7,7 +7,6 @@ import Series from "./pages/Series";
 import Shows from "./pages/Shows";
 import Sports from "./pages/Sports";
 import BeAChiller from "./pages/BeAChiller";
-// import Movies from "./components/Movies";
 
 function App() {
   const currentPath = useLocation().pathname;
@@ -17,7 +16,6 @@ function App() {
       {currentPath !== '/be-a-chiller' && <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/" element={<Movies />} /> */}
         <Route path="/series" element={<Series />} />
         <Route path="/shows" element={<Shows />} />
         <Route path="/sports" element={<Sports />} />
